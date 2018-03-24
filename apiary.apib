@@ -1,0 +1,91 @@
+FORMAT: 1A
+HOST: http://52.87.242.146:80
+
+# Tic-Tac-Toe
+
+RESTful API for a simple tic-tac-toe game.
+
+## API [/api/games]
+
+### List All Games [GET]
+
++ Response 200 (application/json)
+
+
+        
+
+### Create a New Game [POST]
+
+
++ Request (application/json)
+    
+    + Body
+    
+            {
+                "player1": "Test User",
+                "player2": "Other User"
+            }
+    
+        
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": 2,
+                "player1": "Test User-x",
+                "player2": "Other User-o",
+                "board": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                    ],
+                "move": 0,
+                "status": "In Progress"
+            }    
+            
+### Get Game By ID [GET /api/games/<id>]
+
++ Response 200 (application/json)
+    
+    + Body
+
+            {
+                "id": 2,
+                "player1": "Test User-x",
+                "player2": "Other User-o",
+                "board": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                    ],
+                "move": 0,
+                "status": "In Progress"
+            }  
+            
+### Make move [POST /api/games/<id>]
+
+
++ Request (application/json)
+    
+    + Body
+    
+            { 
+                "player": 1,
+                "location": 7
+                
+            }        
++ Response 204 (application/json)
